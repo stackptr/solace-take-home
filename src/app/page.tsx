@@ -34,14 +34,15 @@ export default function Home() {
 
     console.log("filtering advocates...");
     const filteredAdvocates = advocates.filter((advocate) => {
-      return (
-        advocate.firstName.includes(searchTerm) ||
-        advocate.lastName.includes(searchTerm) ||
-        advocate.city.includes(searchTerm) ||
-        advocate.degree.includes(searchTerm) ||
-        advocate.specialties.includes(searchTerm) ||
-        advocate.yearsOfExperience.toString().includes(searchTerm)
-      );
+      return Object.values(advocate).some(fieldVal => {
+        if (typeof fieldVal === "string") {
+          return fieldVal.toLowerCase().includes(searchTerm);
+        } else if (typeof fieldVal === "number") {
+          return fieldVal.toString().toLowerCase().includes(searchTerm);
+        } else if (Array.isArray(fieldVal)) {
+          return fieldVal.some(s => s.toLowerCase().includes(searchTerm))
+        }
+      })
     });
 
     setFilteredAdvocates(filteredAdvocates);
