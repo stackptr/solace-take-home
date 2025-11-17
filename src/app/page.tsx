@@ -2,9 +2,20 @@
 
 import { useEffect, useState } from "react";
 
+type Advocate = {
+  // id: number  # TODO: Use persistent key when wired to DB, see #2
+  firstName: string
+  lastName: string
+  city: string
+  degree: string
+  specialties: string[]
+  yearsOfExperience: number,
+  phoneNumber: number,
+};
+
 export default function Home() {
-  const [advocates, setAdvocates] = useState([]);
-  const [filteredAdvocates, setFilteredAdvocates] = useState([]);
+  const [advocates, setAdvocates] = useState<Advocate[]>([]);
+  const [filteredAdvocates, setFilteredAdvocates] = useState<Advocate[]>([]);
 
   useEffect(() => {
     console.log("fetching advocates...");
@@ -16,10 +27,13 @@ export default function Home() {
     });
   }, []);
 
-  const onChange = (e) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value;
-
-    document.getElementById("search-term").innerHTML = searchTerm;
+    
+    const el = document.getElementById("search-term")
+    if (el) {
+      el.innerHTML = searchTerm;
+    }
 
     console.log("filtering advocates...");
     const filteredAdvocates = advocates.filter((advocate) => {
@@ -29,7 +43,7 @@ export default function Home() {
         advocate.city.includes(searchTerm) ||
         advocate.degree.includes(searchTerm) ||
         advocate.specialties.includes(searchTerm) ||
-        advocate.yearsOfExperience.includes(searchTerm)
+        advocate.yearsOfExperience.toString().includes(searchTerm)
       );
     });
 
