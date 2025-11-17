@@ -77,9 +77,12 @@ export default function Home() {
                 <td>{advocate.city}</td>
                 <td>{advocate.degree}</td>
                 <td>
-                  {advocate.specialties.map((s, specialtyIdx) => (
-                    <div key={specialtyIdx}>{s}</div>
-                  ))}
+                  {advocate.specialties.map((s, specialtyIdx) => {
+                    const specialtyKey = `${i}-${specialtyIdx}`;
+                    return (
+                      <div key={specialtyKey}>{s}</div>
+                      )
+                    })}
                 </td>
                 <td>{advocate.yearsOfExperience}</td>
                 <td>{advocate.phoneNumber}</td>
