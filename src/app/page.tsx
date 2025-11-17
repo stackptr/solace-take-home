@@ -2,6 +2,17 @@
 
 import { useEffect, useState } from "react";
 
+type Advocate = {
+  // id: number  # TODO: Use persistent key when wired to DB, see #2
+  firstName: string
+  lastName: string
+  city: string
+  degree: string
+  specialties: string[]
+  yearsOfExperience: number,
+  phoneNumber: number,
+};
+
 export default function Home() {
   const [advocates, setAdvocates] = useState([]);
   const [filteredAdvocates, setFilteredAdvocates] = useState([]);
