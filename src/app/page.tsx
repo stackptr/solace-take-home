@@ -58,19 +58,21 @@ export default function Home() {
       <h1 className="border-b-2 bg-cyan-900 p-4 text-xl font-semibold text-cyan-200">
         Solace Advocates
       </h1>
-      <div className="px-6 py-3">
-        <input
-          className="rounded px-2 py-1 font-sans text-sm text-slate-500 ring-1 ring-slate-900/10"
-          value={searchTerm}
-          onChange={onChange}
-          placeholder="Search"
-        />
-        <button
-          className={`ml-4 rounded bg-cyan-800 px-2 py-1 text-sm text-cyan-100 ring-1 ring-cyan-800/10 ${searchTerm === "" ? "hidden" : ""}`}
-          onClick={onClick}
-        >
-          Reset Search
-        </button>
+      <div className="flex items-center justify-between px-6 py-3">
+        <div>
+          <input
+            className="rounded px-2 py-1 font-sans text-sm text-slate-500 ring-1 ring-slate-900/10"
+            value={searchTerm}
+            onChange={onChange}
+            placeholder="Search"
+          />
+          <button
+            className={`ml-4 rounded bg-cyan-800 px-2 py-1 text-sm text-cyan-100 ring-1 ring-cyan-800/10 ${searchTerm === "" ? "hidden" : ""}`}
+            onClick={onClick}
+          >
+            Reset Search
+          </button>
+        </div>
         <p
           className={`max-w-fit rounded-full border bg-cyan-800 p-2 text-cyan-100 ring-1 ring-cyan-800/10 ${searchTerm === "" ? "hidden" : ""}`}
         >
