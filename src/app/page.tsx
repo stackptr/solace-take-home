@@ -61,7 +61,7 @@ export default function Home() {
         <p>
           Searching for: {searchTerm}
         </p>
-        <input style={{ border: "1px solid black" }} value={searchTerm} onChange={onChange} />
+        <input className="border border-black" value={searchTerm} onChange={onChange} />
         <button onClick={onClick}>Reset Search</button>
       </div>
       <table>
