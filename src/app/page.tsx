@@ -55,7 +55,7 @@ export default function Home() {
 
   return (
     <main>
-      <h1>Solace Advocates</h1>
+      <h1 className="text-xl font-semibold border-b-2 bg-cyan-900 text-cyan-200 p-4">Solace Advocates</h1>
       <br />
       <br />
       <div>
