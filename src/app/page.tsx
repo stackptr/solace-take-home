@@ -65,9 +65,14 @@ export default function Home() {
           onChange={onChange}
           placeholder="Search"
         />
-        <button onClick={onClick}>Reset Search</button>
+        <button
+          className={`ml-4 rounded bg-cyan-800 px-2 py-1 text-sm text-cyan-100 ring-1 ring-cyan-800/10 ${searchTerm === "" ? "hidden" : ""}`}
+          onClick={onClick}
+        >
+          Reset Search
+        </button>
         <p
-          className={`max-w-fit rounded-full border bg-cyan-900 p-2 text-cyan-100 ${searchTerm === "" ? "hidden" : ""}`}
+          className={`max-w-fit rounded-full border bg-cyan-800 p-2 text-cyan-100 ring-1 ring-cyan-800/10 ${searchTerm === "" ? "hidden" : ""}`}
         >
           <span className="font-semibold">Searching for:</span> {searchTerm}
         </p>
