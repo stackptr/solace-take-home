@@ -4,19 +4,19 @@ import { useEffect, useState } from "react";
 
 type Advocate = {
   // id: number  # TODO: Use persistent key when wired to DB, see #2
-  firstName: string
-  lastName: string
-  city: string
-  degree: string
-  specialties: string[]
-  yearsOfExperience: number,
-  phoneNumber: number,
+  firstName: string;
+  lastName: string;
+  city: string;
+  degree: string;
+  specialties: string[];
+  yearsOfExperience: number;
+  phoneNumber: number;
 };
 
 export default function Home() {
   const [advocates, setAdvocates] = useState<Advocate[]>([]);
   const [filteredAdvocates, setFilteredAdvocates] = useState<Advocate[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>("")
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   useEffect(() => {
     console.log("fetching advocates...");
@@ -34,15 +34,15 @@ export default function Home() {
 
     console.log("filtering advocates...");
     const filteredAdvocates = advocates.filter((advocate) => {
-      return Object.values(advocate).some(fieldVal => {
+      return Object.values(advocate).some((fieldVal) => {
         if (typeof fieldVal === "string") {
           return fieldVal.toLowerCase().includes(searchTerm);
         } else if (typeof fieldVal === "number") {
           return fieldVal.toString().toLowerCase().includes(searchTerm);
         } else if (Array.isArray(fieldVal)) {
-          return fieldVal.some(s => s.toLowerCase().includes(searchTerm))
+          return fieldVal.some((s) => s.toLowerCase().includes(searchTerm));
         }
-      })
+      });
     });
 
     setFilteredAdvocates(filteredAdvocates);
@@ -55,12 +55,18 @@ export default function Home() {
 
   return (
     <main>
-      <h1 className="text-xl font-semibold border-b-2 bg-cyan-900 text-cyan-200 p-4">Solace Advocates</h1>
+      <h1 className="border-b-2 bg-cyan-900 p-4 text-xl font-semibold text-cyan-200">
+        Solace Advocates
+      </h1>
       <div className="my-4">
         <p>Search</p>
-        <input className="border border-black" value={searchTerm} onChange={onChange} />
+        <input
+          className="border border-black"
+          value={searchTerm}
+          onChange={onChange}
+        />
         <button onClick={onClick}>Reset Search</button>
-        <p className="max-w-fit bg-cyan-900 text-cyan-100 border rounded-full p-2">
+        <p className="max-w-fit rounded-full border bg-cyan-900 p-2 text-cyan-100">
           <span className="font-semibold">Searching for:</span> {searchTerm}
         </p>
       </div>
@@ -87,10 +93,8 @@ export default function Home() {
                 <td>
                   {advocate.specialties.map((s, specialtyIdx) => {
                     const specialtyKey = `${i}-${specialtyIdx}`;
-                    return (
-                      <div key={specialtyKey}>{s}</div>
-                      )
-                    })}
+                    return <div key={specialtyKey}>{s}</div>;
+                  })}
                 </td>
                 <td>{advocate.yearsOfExperience}</td>
                 <td>{advocate.phoneNumber}</td>
