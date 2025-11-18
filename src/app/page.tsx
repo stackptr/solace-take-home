@@ -59,7 +59,7 @@ export default function Home() {
         Solace Advocates
       </h1>
       <div className="flex items-center justify-between bg-slate-50 px-6 py-3">
-        <div>
+        <div className="py-1">
           <input
             className="rounded px-2 py-1 font-sans text-sm text-slate-500 ring-1 ring-slate-900/10"
             value={searchTerm}
@@ -74,7 +74,7 @@ export default function Home() {
           </button>
         </div>
         <p
-          className={`max-w-fit rounded-full border bg-cyan-800 p-2 text-cyan-100 ring-1 ring-cyan-800/10 ${searchTerm === "" ? "hidden" : ""}`}
+          className={`max-w-fit rounded-full border bg-cyan-800 px-2 py-1 text-cyan-100 ring-1 ring-cyan-800/10 ${searchTerm === "" ? "hidden" : ""}`}
         >
           <span className="font-semibold">Searching for:</span> {searchTerm}
         </p>
