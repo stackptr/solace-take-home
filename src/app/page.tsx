@@ -58,10 +58,10 @@ export default function Home() {
       <h1 className="border-b-2 bg-cyan-900 p-4 text-xl font-semibold text-cyan-200">
         Solace Advocates
       </h1>
-      <div className="my-4">
+      <div className="px-6 py-3">
         <p>Search</p>
         <input
-          className="border border-black"
+          className="rounded px-2 py-1 font-sans text-sm text-slate-500 ring-1 ring-slate-900/10"
           value={searchTerm}
           onChange={onChange}
         />
