@@ -70,34 +70,60 @@ export default function Home() {
           <span className="font-semibold">Searching for:</span> {searchTerm}
         </p>
       </div>
-      <table>
-        <thead>
+      <table className="w-screen">
+        <thead className="sticky top-0 border-b border-slate-200 bg-slate-50">
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>City</th>
-            <th>Degree</th>
-            <th>Specialties</th>
-            <th>Years of Experience</th>
-            <th>Phone Number</th>
+            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+              First Name
+            </th>
+            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+              Last Name
+            </th>
+            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+              City
+            </th>
+            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+              Degree
+            </th>
+            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+              Specialties
+            </th>
+            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+              Years of Experience
+            </th>
+            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+              Phone Number
+            </th>
           </tr>
         </thead>
         <tbody>
           {filteredAdvocates.map((advocate, i) => {
             return (
-              <tr key={i}>
-                <td>{advocate.firstName}</td>
-                <td>{advocate.lastName}</td>
-                <td>{advocate.city}</td>
-                <td>{advocate.degree}</td>
-                <td>
+              <tr key={i} className="odd:bg-white even:bg-slate-50">
+                <td className="px-6 py-4 text-sm text-slate-600">
+                  {advocate.firstName}
+                </td>
+                <td className="px-6 py-4 text-sm font-medium text-slate-600">
+                  {advocate.lastName}
+                </td>
+                <td className="px-6 py-4 text-sm text-slate-600">
+                  {advocate.city}
+                </td>
+                <td className="px-6 py-4 text-sm text-slate-600">
+                  {advocate.degree}
+                </td>
+                <td className="px-6 py-4 text-sm text-slate-600">
                   {advocate.specialties.map((s, specialtyIdx) => {
                     const specialtyKey = `${i}-${specialtyIdx}`;
                     return <div key={specialtyKey}>{s}</div>;
                   })}
                 </td>
-                <td>{advocate.yearsOfExperience}</td>
-                <td>{advocate.phoneNumber}</td>
+                <td className="px-6 py-4 text-sm text-slate-600">
+                  {advocate.yearsOfExperience}
+                </td>
+                <td className="px-6 py-4 text-sm text-slate-600">
+                  {advocate.phoneNumber}
+                </td>
               </tr>
             );
           })}
