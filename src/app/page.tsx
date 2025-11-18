@@ -79,33 +79,33 @@ export default function Home() {
           <span className="font-semibold">Searching for:</span> {searchTerm}
         </p>
       </div>
-      <table className="w-screen">
-        <thead className="sticky top-0 border-b border-slate-200 bg-slate-50">
-          <tr>
-            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+      <table className="w-full border-separate border-spacing-0">
+        <thead>
+          <tr className="sticky top-0 z-10 bg-slate-50">
+            <th className="border-b border-slate-200 px-6 py-3 text-left text-sm font-medium text-slate-900">
               First Name
             </th>
-            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+            <th className="border-b border-slate-200 px-6 py-3 text-left text-sm font-medium text-slate-900">
               Last Name
             </th>
-            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+            <th className="border-b border-slate-200 px-6 py-3 text-left text-sm font-medium text-slate-900">
               City
             </th>
-            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+            <th className="border-b border-slate-200 px-6 py-3 text-left text-sm font-medium text-slate-900">
               Degree
             </th>
-            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+            <th className="border-b border-slate-200 px-6 py-3 text-left text-sm font-medium text-slate-900">
               Specialties
             </th>
-            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+            <th className="border-b border-slate-200 px-6 py-3 text-left text-sm font-medium text-slate-900">
               Years of Experience
             </th>
-            <th className="px-6 py-3 text-left text-sm font-medium text-slate-900">
+            <th className="border-b border-slate-200 px-6 py-3 text-left text-sm font-medium text-slate-900">
               Phone Number
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="divide-y divide-gray-200">
           {filteredAdvocates.map((advocate, i) => {
             return (
               <tr key={i} className="odd:bg-white even:bg-slate-50">
