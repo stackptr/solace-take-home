@@ -56,9 +56,7 @@ export default function Home() {
   return (
     <main>
       <h1 className="text-xl font-semibold border-b-2 bg-cyan-900 text-cyan-200 p-4">Solace Advocates</h1>
-      <br />
-      <br />
-      <div>
+      <div className="my-4">
         <p>Search</p>
         <p>
           Searching for: {searchTerm}
@@ -66,8 +64,6 @@ export default function Home() {
         <input style={{ border: "1px solid black" }} value={searchTerm} onChange={onChange} />
         <button onClick={onClick}>Reset Search</button>
       </div>
-      <br />
-      <br />
       <table>
         <thead>
           <tr>
