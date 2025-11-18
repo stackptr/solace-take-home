@@ -58,11 +58,11 @@ export default function Home() {
       <h1 className="text-xl font-semibold border-b-2 bg-cyan-900 text-cyan-200 p-4">Solace Advocates</h1>
       <div className="my-4">
         <p>Search</p>
-        <p>
-          Searching for: {searchTerm}
-        </p>
         <input className="border border-black" value={searchTerm} onChange={onChange} />
         <button onClick={onClick}>Reset Search</button>
+        <p className="max-w-fit bg-cyan-900 text-cyan-100 border rounded-full p-2">
+          <span className="font-semibold">Searching for:</span> {searchTerm}
+        </p>
       </div>
       <table>
         <thead>
