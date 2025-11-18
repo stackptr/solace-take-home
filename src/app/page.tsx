@@ -66,7 +66,9 @@ export default function Home() {
           onChange={onChange}
         />
         <button onClick={onClick}>Reset Search</button>
-        <p className="max-w-fit rounded-full border bg-cyan-900 p-2 text-cyan-100">
+        <p
+          className={`max-w-fit rounded-full border bg-cyan-900 p-2 text-cyan-100 ${searchTerm === "" ? "hidden" : ""}`}
+        >
           <span className="font-semibold">Searching for:</span> {searchTerm}
         </p>
       </div>
