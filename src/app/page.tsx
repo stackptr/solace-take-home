@@ -59,11 +59,11 @@ export default function Home() {
         Solace Advocates
       </h1>
       <div className="px-6 py-3">
-        <p>Search</p>
         <input
           className="rounded px-2 py-1 font-sans text-sm text-slate-500 ring-1 ring-slate-900/10"
           value={searchTerm}
           onChange={onChange}
+          placeholder="Search"
         />
         <button onClick={onClick}>Reset Search</button>
         <p
