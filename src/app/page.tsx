@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+import mockAdvocates from "./api/advocates/mock";
+
 type Advocate = {
   // id: number  # TODO: Use persistent key when wired to DB, see #2
   firstName: string;
@@ -21,10 +23,17 @@ export default function Home() {
   useEffect(() => {
     console.log("fetching advocates...");
     fetch("/api/advocates").then((response) => {
-      response.json().then((jsonResponse) => {
-        setAdvocates(jsonResponse.data);
-        setFilteredAdvocates(jsonResponse.data);
-      });
+      response
+        .json()
+        .then((jsonResponse) => {
+          setAdvocates(jsonResponse.data);
+          console.log(jsonResponse.data);
+          setFilteredAdvocates(jsonResponse.data);
+        })
+        .catch(() => {
+          setAdvocates(mockAdvocates);
+          setFilteredAdvocates(mockAdvocates);
+        });
     });
   }, []);
 
